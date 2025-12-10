@@ -62,3 +62,19 @@ def test_alert_views(main_page, common_page, alert_views_page):
     common_page.go_to_main_navigation()
 
     assert common_page.get_num_back_button() == 0, "no back button is displayed in main navigation"
+
+
+def test_alert_views_simple_item(main_page, alert_views_page):
+    # click the alert views nav item
+    main_page.go_to_alert_views()
+
+    # click simple item
+    alert_views_page.click_simple_item()
+
+    assert alert_views_page.simple_modal.is_displayed(), "simple modal is displayed"
+    assert "A Short Title Is Best" in alert_views_page.alert().text
+
+    # click simple modal
+    alert_views_page.click_ok_button()
+
+    assert alert_views_page.get_num_simple_modal() == 0, "no simple modal is displayed in main navigation"
