@@ -72,9 +72,9 @@ def test_alert_views_simple_item(main_page, alert_views_page):
     alert_views_page.click_simple_item()
 
     assert alert_views_page.simple_modal.is_displayed(), "simple modal is displayed"
-    assert "A Short Title Is Best" in alert_views_page.alert().text
+    assert "A Short Title Is Best" in alert_views_page.alert().text, "correct text is displayed in simple modal"
 
     # click simple modal
     alert_views_page.click_ok_button()
 
-    assert alert_views_page.get_num_simple_modal() == 0, "no simple modal is displayed in main navigation"
+    assert alert_views_page.get_num_simple_modal() == 0, "no simple modal is displayed after clicking ok button"
