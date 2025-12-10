@@ -2,6 +2,8 @@ import pytest
 from appium import webdriver
 from pages.main_page import MainPage
 from pages.activity_monitors_page import ActivityMonitorsPage
+from pages.alert_views_page import AlertViewsPage
+from pages.common_page import CommonPage
 from utils.capabilities import ios_capabilities
 import os
 
@@ -27,5 +29,13 @@ def main_page(driver):
     return MainPage(driver)
 
 @pytest.fixture
+def common_page(driver):
+    return CommonPage(driver)
+
+@pytest.fixture
 def activity_monitors_page(driver):
     return ActivityMonitorsPage(driver)
+
+@pytest.fixture
+def alert_views_page(driver):
+    return AlertViewsPage(driver)
